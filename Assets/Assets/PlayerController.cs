@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         camera1.transform.position = new Vector3(transform.position.x,
-            camera1.transform.position.y, transform.position.z);
+            transform.position.y, transform.position.z);
         GatherInput();
         Look();
     }
