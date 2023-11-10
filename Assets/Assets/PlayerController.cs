@@ -11,14 +11,48 @@ public class PlayerController : MonoBehaviour
     public Animator playerAnimator;
     public GameObject camera1;
     public ManagerJoystic MJ;
+    public bool Sword ,arrow;
+
+    private void Start()
+    {
+        Sword = false;
+        arrow = false;
+       
+    }
     private void Update()
     {
+        
         camera1.transform.position = new Vector3(transform.position.x,
             transform.position.y, transform.position.z);
         GatherInput();
         Look();
     }
+    public void GunAnimation(int gunNumber)
+    {
+        playerAnimator.SetInteger("GunNumber", gunNumber);
 
+        if (gunNumber == 1)
+        {
+           
+              Sword = !Sword;
+          
+            playerAnimator.SetBool("sword idle", Sword);
+            playerAnimator.SetBool("arrowIdle", !Sword);
+            arrow = false;
+        }
+        if (gunNumber == 2)
+        {
+            
+            arrow = !arrow;
+           
+            playerAnimator.SetBool("arrowIdle", arrow);
+            playerAnimator.SetBool("sword idle", !arrow);
+
+            Sword = false;
+        }
+
+    }  
+   
 
     private void FixedUpdate()
     {
