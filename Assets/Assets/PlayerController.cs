@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public Animator playerAnimator;
     public GameObject camera1;
     public ManagerJoystic MJ;
-    public bool Sword ,arrow;
+    public bool Sword , arrow , arrowWalk , swordWalk;
 
     private void Start()
     {
@@ -51,8 +51,28 @@ public class PlayerController : MonoBehaviour
             Sword = false;
         }
 
-    }  
-   
+        if (playerAnimator.GetBool("arrowIdle") == true)
+            arrowWalk = true;
+        else
+            arrowWalk = false;
+        
+        if (playerAnimator.GetBool("sword idle") == true)
+            swordWalk = true;
+        else
+            swordWalk = false;
+
+
+    }
+    public void ShootArrow()
+    {
+        playerAnimator.SetBool("shootArrow",true);
+        StartCoroutine(EndAnimation());
+    }
+     IEnumerator EndAnimation()
+    {
+        yield return new WaitForSeconds(0.5f);
+        playerAnimator.SetBool("shootArrow", false);
+    }
 
     private void FixedUpdate()
     {
@@ -81,7 +101,29 @@ public class PlayerController : MonoBehaviour
         bool isMoving = _input != Vector3.zero;
 
         // Set the "walk" parameter based on whether the player is moving
-        playerAnimator.SetBool("walk", isMoving);
+        if (!arrowWalk)
+        {
+            playerAnimator.SetBool("walk", isMoving);
+            _speed = 5;
+        }
+        if(arrowWalk)
+        {
+            playerAnimator.SetBool("walkArrow", isMoving);
+            _speed = 2;
+        }
+
+       /* if (!swordWalk)
+        {
+            playerAnimator.SetBool("walk", isMoving);
+            _speed = 5;
+        }*/
+        if(swordWalk)
+        {
+            playerAnimator.SetBool("walkSword", isMoving);
+            _speed = 4;
+        }
+
+
     }
 }
 
