@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 _input;
     public Animator playerAnimator;
     public GameObject camera1;
-
+    public ManagerJoystic MJ;
     private void Update()
     {
         camera1.transform.position = new Vector3(transform.position.x,
@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
         Look();
     }
 
+
     private void FixedUpdate()
     {
         Move();
@@ -26,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
     private void GatherInput()
     {
-        _input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+        _input = new Vector3(MJ.inputHorizantal(), 0, MJ.inputVertical());
     }
 
     private void Look()
