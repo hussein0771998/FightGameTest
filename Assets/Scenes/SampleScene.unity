@@ -4724,7 +4724,7 @@ GameObject:
   - component: {fileID: 267790291}
   - component: {fileID: 267790290}
   m_Layer: 5
-  m_Name: arrow (1)
+  m_Name: kill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4776,7 +4776,7 @@ MonoBehaviour:
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 3
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -4825,7 +4825,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0d9a15fb4b9af2942811430b40d42460, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dc01fb4a9aaf1264e815a4bcde383be9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7812,6 +7812,18 @@ PrefabInstance:
       propertyPath: camera1
       value: 
       objectReference: {fileID: 2110757011}
+    - target: {fileID: 2460710455773509147, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
+      propertyPath: gunIcon
+      value: 
+      objectReference: {fileID: 267790290}
+    - target: {fileID: 2460710455773509147, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
+      propertyPath: arowSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0d9a15fb4b9af2942811430b40d42460, type: 3}
+    - target: {fileID: 2460710455773509147, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
+      propertyPath: swordSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dc01fb4a9aaf1264e815a4bcde383be9, type: 3}
     - target: {fileID: 3873944252598229961, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
       propertyPath: m_Name
       value: PT_Lowpoly_Armors_Female_Moduar_Free

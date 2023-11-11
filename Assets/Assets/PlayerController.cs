@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class PlayerController : MonoBehaviour
     public GameObject camera1;
     public ManagerJoystic MJ;
     public bool Sword , arrow , arrowWalk , swordWalk;
-
+    public Button gunIcon;
+    public Sprite swordSprite, arowSprite;
     private void Start()
     {
         Sword = false;
@@ -61,19 +63,43 @@ public class PlayerController : MonoBehaviour
         else
             swordWalk = false;
 
+        if (Sword)
+            gunIcon.GetComponent<Image>().sprite = swordSprite;
+        
+        
+        if (arrow)
+            gunIcon.GetComponent<Image>().sprite = arowSprite;
+
 
     }
     public void ShootArrow()
     {
-        playerAnimator.SetBool("shootArrow",true);
-        playerAnimator.SetBool("shootsword", true);
+        if (Sword)
+        {
+            string[] swordAnimations = { "shootsword1", "shootsword2", "shootsword3" };
+
+            // Randomly select an animation from the array
+            string randomAnimation = swordAnimations[Random.Range(0, swordAnimations.Length)];
+
+            // Set the selected animation to true
+            playerAnimator.SetBool(randomAnimation, true);
+        }
+       
+        if (arrow)
+        {
+            playerAnimator.SetBool("shootArrow", true);
+        }
+       
+       
         StartCoroutine(EndAnimation());
     }
      IEnumerator EndAnimation()
     {
         yield return new WaitForSeconds(1f);
         playerAnimator.SetBool("shootArrow", false);
-        playerAnimator.SetBool("shootsword", false);
+        playerAnimator.SetBool("shootsword1", false); 
+        playerAnimator.SetBool("shootsword2", false);
+        playerAnimator.SetBool("shootsword3", false);
     }
 
     private void FixedUpdate()
