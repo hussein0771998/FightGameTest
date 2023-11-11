@@ -129,29 +129,23 @@ public class PlayerController : MonoBehaviour
         bool isMoving = _input != Vector3.zero;
 
         // Set the "walk" parameter based on whether the player is moving
-        if (!arrowWalk)
+        if (!arrowWalk || !swordWalk)
         {
             playerAnimator.SetBool("walk", isMoving);
             _speed = 5;
         }
-        if(arrowWalk)
+        if(arrow)
         {
             playerAnimator.SetBool("walkArrow", isMoving);
             _speed = 2;
         }
-
-       /* if (!swordWalk)
-        {
-            playerAnimator.SetBool("walk", isMoving);
-            _speed = 5;
-        }*/
-        if(swordWalk)
+        if (Sword)
         {
             playerAnimator.SetBool("walkSword", isMoving);
             _speed = 4;
         }
 
-
+       // Debug.Log(" isMoving : " + isMoving);
     }
 }
 
