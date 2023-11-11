@@ -66,12 +66,14 @@ public class PlayerController : MonoBehaviour
     public void ShootArrow()
     {
         playerAnimator.SetBool("shootArrow",true);
+        playerAnimator.SetBool("shootsword", true);
         StartCoroutine(EndAnimation());
     }
      IEnumerator EndAnimation()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         playerAnimator.SetBool("shootArrow", false);
+        playerAnimator.SetBool("shootsword", false);
     }
 
     private void FixedUpdate()
