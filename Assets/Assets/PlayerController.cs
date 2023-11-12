@@ -85,15 +85,16 @@ public class PlayerController : MonoBehaviour
             playerAnimator.SetBool(randomAnimation, true);
         }
        
-        if (arrow)
+        if (arrow && ArrowProjectTile.instance.canShoot)
         {
             playerAnimator.SetBool("shootArrow", true);
+            ArrowProjectTile.instance.ShootArow();
         }
        
        
         StartCoroutine(EndAnimation());
     }
-     IEnumerator EndAnimation()
+    IEnumerator EndAnimation()
     {
         yield return new WaitForSeconds(1f);
         playerAnimator.SetBool("shootArrow", false);
