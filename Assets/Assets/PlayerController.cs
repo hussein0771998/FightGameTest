@@ -133,16 +133,22 @@ public class PlayerController : MonoBehaviour
         if (!arrowWalk || !swordWalk)
         {
             playerAnimator.SetBool("walk", isMoving);
+            playerAnimator.SetBool("walkArrow", !isMoving);
+            playerAnimator.SetBool("walkSword", !isMoving);
             _speed = 5;
         }
         if(arrow)
         {
             playerAnimator.SetBool("walkArrow", isMoving);
+            playerAnimator.SetBool("walkSword", !isMoving);
+            playerAnimator.SetBool("walk", !isMoving);
             _speed = 2;
         }
         if (Sword)
         {
             playerAnimator.SetBool("walkSword", isMoving);
+            playerAnimator.SetBool("walk", !isMoving);
+            playerAnimator.SetBool("walkArrow", !isMoving);
             _speed = 4;
         }
 
