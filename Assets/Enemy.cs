@@ -8,7 +8,13 @@ public class Enemy : MonoBehaviour
     {
         if (other.tag == "Arrow")
         {
-            Destroy(gameObject);
+            Debug.Log("Hit By Arrow ");
+          //  Destroy(gameObject);
+        }
+        if (other.tag == "Sword")
+        {
+            Debug.Log("Hit By Sword ");
+           // Destroy(gameObject);
         }
     }
 }
