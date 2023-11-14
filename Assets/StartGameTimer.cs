@@ -9,6 +9,9 @@ public class StartGameTimer : MonoBehaviour
     public TextMeshProUGUI timerText;
     public Image timerIcon;
     public float timer = 3f;
+    public Image backGround;
+    public ParticleSystem playerStartGame;
+    public Animator wallAnim;
     void Start()
     {
         
@@ -25,7 +28,12 @@ public class StartGameTimer : MonoBehaviour
         
         if (timer <= 0)
         {
+            playerStartGame.Play();
+            wallAnim.SetBool("down", true);
+            
             Destroy(gameObject);
+            Destroy(backGround.gameObject);
+           
         }
     }
 
