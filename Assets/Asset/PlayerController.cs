@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public bool Sword , arrow , arrowWalk , swordWalk;
     public Button gunIcon;
     public Sprite swordSprite, arowSprite;
+    
+
     private void Start()
     {
         Sword = false;
@@ -83,15 +85,20 @@ public class PlayerController : MonoBehaviour
 
             // Set the selected animation to true
             playerAnimator.SetBool(randomAnimation, true);
+            
+            PlayerPrefs.SetInt("shootSword1", 1);
+           
         }
-       
+
         if (arrow && ArrowProjectTile.instance.canShoot)
         {
             playerAnimator.SetBool("shootArrow", true);
             ArrowProjectTile.instance.ShootArow();
+            PlayerPrefs.SetInt("shootarrow1", 1);
+
         }
-       
-       
+
+
         StartCoroutine(EndAnimation());
     }
     IEnumerator EndAnimation()

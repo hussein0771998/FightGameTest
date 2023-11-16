@@ -2,33 +2,69 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
     public Transform player;
     float distanceBetween;
-    [SerializeField] Rigidbody _rig;
     [SerializeField] Animator enemyAnimation;
     public float followSpeed = 5f;
     private NavMeshAgent enemyNav;
     [SerializeField] int enemy1Num;
+    public Image healthBar;
+    
+   
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Arrow")
         {
-            Debug.Log("Hit By Arrow ");
-          //  Destroy(gameObject);
+            //Debug.Log("Hit By Arrow ");
+            if (PlayerPrefs.GetInt("shootarrow1") == 1)
+            {
+                Debug.Log("Hit By arrow ");
+                enemyAnimation.SetBool("hit2", true);
+                healthBar.fillAmount -= 0.35f;
+                PlayerPrefs.SetInt("shootarrow1", 0);
+               
+
+            }
+
+            //  Destroy(gameObject);
         }
         if (other.tag == "Sword")
         {
-            Debug.Log("Hit By Sword ");
+            if (PlayerPrefs.GetInt("shootSword1") == 1)
+            {
+                healthBar.fillAmount -= 0.35f;
+                Debug.Log("Hit By Sword ");
+                enemyAnimation.SetBool("hit",true);
+                PlayerPrefs.SetInt("shootSword1", 0);
+                StartCoroutine(StopAnimationArrow());
+            }
+            
            // Destroy(gameObject);
         }
     }
+  /*  private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Sword")
+        {
+            enemyAnimation.SetBool("hit", false);
+        }
+       
+    }*/
+
+    IEnumerator StopAnimationArrow()
+    {
+        yield return new WaitForSeconds(1f);
+        enemyAnimation.SetBool("hit", false);
+    }
+
     private void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
-        _rig = gameObject.GetComponent<Rigidbody>();
+       
         enemyAnimation = gameObject.GetComponent<Animator>();
         enemyNav = gameObject.GetComponent<NavMeshAgent>();
 
@@ -62,6 +98,8 @@ public class Enemy : MonoBehaviour
                 enemyAnimation.SetBool("attack2", true);
 
             transform.LookAt(player);
+           
+           
         }
         if (distanceBetween > 7f)
         {
@@ -69,6 +107,12 @@ public class Enemy : MonoBehaviour
             enemyAnimation.SetBool("walk", false);
             enemyAnimation.SetBool("attack2", false);
             enemyAnimation.SetBool("attack1", false);
+        }
+
+        if (healthBar.fillAmount <= 0)
+        {
+            enemyAnimation.SetBool("Die", true);
+            Destroy(gameObject,2f);
         }
     }
 

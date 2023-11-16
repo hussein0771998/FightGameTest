@@ -4017,7 +4017,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 240603793}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -7136,23 +7136,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &418420618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 418420616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 925e3c0c74587aa4cb10d4601b4b8f29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1678309158}
-  _rig: {fileID: 0}
-  enemyAnimation: {fileID: 0}
-  followSpeed: 2
-  enemy1Num: 2
 --- !u!95 &418420619
 Animator:
   serializedVersion: 4
@@ -7913,6 +7896,10 @@ PrefabInstance:
       propertyPath: swordSprite
       value: 
       objectReference: {fileID: 21300000, guid: dc01fb4a9aaf1264e815a4bcde383be9, type: 3}
+    - target: {fileID: 2460710455773509147, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
+      propertyPath: slashParticle
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3873944252598229961, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
       propertyPath: m_Name
       value: PT_Lowpoly_Armors_Female_Moduar_Free
@@ -7965,6 +7952,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6319774544038884725, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9127423727596239429, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -7972,6 +7963,18 @@ PrefabInstance:
     - target: {fileID: 9172835376363212753, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
       propertyPath: m_TagString
       value: Sword
+      objectReference: {fileID: 0}
+    - target: {fileID: 9176583534414567471, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2917
+      objectReference: {fileID: 0}
+    - target: {fileID: 9176583534414567471, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2917
+      objectReference: {fileID: 0}
+    - target: {fileID: 9176583534414567471, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2917
       objectReference: {fileID: 0}
     - target: {fileID: 9176583534414567471, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -16461,23 +16464,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &931284914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 931284912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 925e3c0c74587aa4cb10d4601b4b8f29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1678309158}
-  _rig: {fileID: 0}
-  enemyAnimation: {fileID: 0}
-  followSpeed: 2
-  enemy1Num: 3
 --- !u!95 &931284915
 Animator:
   serializedVersion: 4
@@ -22954,6 +22940,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1824603195, guid: 28fce92923d67c2449f9c3d295c70aef, type: 3}
+      propertyPath: enemy1Num
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1639818050706832, guid: 28fce92923d67c2449f9c3d295c70aef, type: 3}
       propertyPath: m_Name
       value: DemonGirl (1)
@@ -33487,6 +33477,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 712364259, guid: 28fce92923d67c2449f9c3d295c70aef, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 331256322}
+    - target: {fileID: 1824603195, guid: 28fce92923d67c2449f9c3d295c70aef, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1678309158}
     - target: {fileID: 1639818050706832, guid: 28fce92923d67c2449f9c3d295c70aef, type: 3}
       propertyPath: m_Name
       value: DemonGirl
@@ -33535,90 +33533,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 95531330028331018, guid: 28fce92923d67c2449f9c3d295c70aef, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28fce92923d67c2449f9c3d295c70aef, type: 3}
---- !u!1 &1824603192 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1639818050706832, guid: 28fce92923d67c2449f9c3d295c70aef, type: 3}
-  m_PrefabInstance: {fileID: 1824603191}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1824603193
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1824603192}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: d3b617d4c5387004fa355973611faee7, type: 3}
-  m_Controller: {fileID: 9100000, guid: e11af58005f425447ac8b22920c42947, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1824603195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1824603192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 925e3c0c74587aa4cb10d4601b4b8f29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1678309158}
-  _rig: {fileID: 0}
-  enemyAnimation: {fileID: 0}
-  followSpeed: 2
-  enemy1Num: 1
---- !u!136 &1824603196
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1824603192}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.25932693
-  m_Height: 1.8967471
-  m_Direction: 1
-  m_Center: {x: -0, y: 0.9235194, z: -0.020824432}
---- !u!195 &1824603198
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1824603192}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 1.8
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!1001 &1829237163
 PrefabInstance:
   m_ObjectHideFlags: 0
