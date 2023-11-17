@@ -26,7 +26,8 @@ public class Enemy : MonoBehaviour
                 enemyAnimation.SetBool("hit2", true);
                 healthBar.fillAmount -= 0.35f;
                 PlayerPrefs.SetInt("shootarrow1", 0);
-               
+                StartCoroutine(StopAnimation());
+
 
             }
 
@@ -40,7 +41,7 @@ public class Enemy : MonoBehaviour
                 Debug.Log("Hit By Sword ");
                 enemyAnimation.SetBool("hit",true);
                 PlayerPrefs.SetInt("shootSword1", 0);
-                StartCoroutine(StopAnimationArrow());
+                StartCoroutine(StopAnimation());
             }
             
            // Destroy(gameObject);
@@ -55,10 +56,11 @@ public class Enemy : MonoBehaviour
        
     }*/
 
-    IEnumerator StopAnimationArrow()
+    IEnumerator StopAnimation()
     {
         yield return new WaitForSeconds(1f);
         enemyAnimation.SetBool("hit", false);
+        enemyAnimation.SetBool("hit2", false);
     }
 
     private void Start()
@@ -111,6 +113,7 @@ public class Enemy : MonoBehaviour
 
         if (healthBar.fillAmount <= 0)
         {
+            enemyNav.isStopped = true;
             enemyAnimation.SetBool("Die", true);
             Destroy(gameObject,2f);
         }
