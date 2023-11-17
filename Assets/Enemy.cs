@@ -130,7 +130,7 @@ public class Enemy : MonoBehaviour
             // Calculate random offset within a small range
             float offsetX = Random.Range(-1f, 1f); // Adjust the range as needed
             float offsetZ = Random.Range(-1f, 1f); // Adjust the range as needed
-            float offsety = Random.Range(-1f, 1f); // Adjust the range as needed
+           
 
             // Apply the random offset to the coin's position
             coin.transform.position += new Vector3(offsetX, 3f, offsetZ);
