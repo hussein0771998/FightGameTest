@@ -15,7 +15,7 @@ public class CannonEnemy : MonoBehaviour
     }
     public void AttackStone()
     {
-       GameObject stone= Instantiate(stonePrefab, transform.position, Quaternion.identity);
+        GameObject stone= Instantiate(stonePrefab, transform.position, Quaternion.identity);
         _rb = stone.GetComponent<Rigidbody>();
         _rb.AddForce(transform.forward * 14f, ForceMode.VelocityChange);
         stoneFire.Play();
