@@ -13,8 +13,8 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent enemyNav;
     [SerializeField] int enemy1Num;
     public Image healthBar;
-    
-   
+    public GameObject coinPrefab;
+    int coinNumber = 0;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Arrow")
@@ -115,8 +115,30 @@ public class Enemy : MonoBehaviour
         {
             enemyNav.isStopped = true;
             enemyAnimation.SetBool("Die", true);
+            DropCoin();
+           
             Destroy(gameObject,2f);
         }
     }
+
+    void DropCoin()
+    {
+        if (coinNumber <= 5)
+        {
+            GameObject coin = Instantiate(coinPrefab, transform.position, transform.rotation);
+
+            // Calculate random offset within a small range
+            float offsetX = Random.Range(-1f, 1f); // Adjust the range as needed
+            float offsetZ = Random.Range(-1f, 1f); // Adjust the range as needed
+            float offsety = Random.Range(-1f, 1f); // Adjust the range as needed
+
+            // Apply the random offset to the coin's position
+            coin.transform.position += new Vector3(offsetX, 3f, offsetZ);
+
+            coin.gameObject.name = "Coin " + coinNumber.ToString();
+        }
+        coinNumber += 1;
+    }
+
 
 }

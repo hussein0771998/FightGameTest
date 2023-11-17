@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     public bool Sword , arrow , arrowWalk , swordWalk;
     public Button gunIcon;
     public Sprite swordSprite, arowSprite;
-    
 
     private void Start()
     {
