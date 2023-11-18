@@ -15,12 +15,13 @@ public class PlayerController : MonoBehaviour
     public bool Sword , arrow , arrowWalk , swordWalk;
     public Button gunIcon;
     public Sprite swordSprite, arowSprite;
-
+    bool canBomb ;
     private void Start()
     {
         Sword = false;
         arrow = false;
-       
+        canBomb = true;
+
     }
     private void Update()
     {
@@ -99,6 +100,23 @@ public class PlayerController : MonoBehaviour
 
 
         StartCoroutine(EndAnimation());
+    }
+
+    public void AttackBomb()
+    {
+        if (canBomb && !arrow && !Sword)
+        {
+            BombProjectile.ins.attack();
+           
+            canBomb = false;
+            StartCoroutine(CanBomb());
+        }
+      
+    }
+    private IEnumerator CanBomb()
+    {
+        yield return new WaitForSeconds(3f);
+        canBomb = true;
     }
     IEnumerator EndAnimation()
     {

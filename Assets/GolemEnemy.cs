@@ -15,7 +15,7 @@ public class GolemEnemy : MonoBehaviour
         
         while (true)
         {
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(4f);
             GameObject bomb = Instantiate(bombPrefab, transform.position, transform.rotation);
             bomb.transform.position += new Vector3(0f, 0f, -3f);
         }
