@@ -91,7 +91,7 @@ public class Enemy : MonoBehaviour
         if (distanceBetween <= enemyNav.stoppingDistance)
         {
             enemyNav.isStopped = true;
-            Debug.Log("2");
+           // Debug.Log("2");
             enemyAnimation.SetBool("walk", false);
 
             if (enemy1Num == 1)
