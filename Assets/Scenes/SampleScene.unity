@@ -4508,14 +4508,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 292081816}
-  m_LocalRotation: {x: -0.50174224, y: -0.49825168, z: 0.50174224, w: 0.49825168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.28, y: 0.813, z: 0.129}
   m_LocalScale: {x: 0.066730656, y: 0.06673066, z: 0.06673066}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1678309158}
   m_RootOrder: 28
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 90.4}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &292081818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9105,6 +9105,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8241013910951152780, guid: 07b9db8a4c5b12449b9ee8e9fbccd558, type: 3}
   m_PrefabInstance: {fileID: 499336457}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &501579105 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1184614978622962, guid: 6bbfea6690ef7724ba495c866081f855, type: 3}
+  m_PrefabInstance: {fileID: 1186355778}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &501579107
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501579105}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 196.79472, y: 94.86184, z: 138.04056}
+  m_Center: {x: -15.568494, y: -3.7661848, z: 11.82091}
 --- !u!1001 &503546537
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19279,9 +19297,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 901442580}
     m_Modifications:
+    - target: {fileID: 1087208745, guid: 6bbfea6690ef7724ba495c866081f855, type: 3}
+      propertyPath: bombCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186355780, guid: 6bbfea6690ef7724ba495c866081f855, type: 3}
+      propertyPath: golemNavmesh
+      value: 
+      objectReference: {fileID: 1186355783}
+    - target: {fileID: 1186355782, guid: 6bbfea6690ef7724ba495c866081f855, type: 3}
+      propertyPath: m_Radius
+      value: 2.1659517
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186355782, guid: 6bbfea6690ef7724ba495c866081f855, type: 3}
+      propertyPath: m_Center.y
+      value: 1.3881272
+      objectReference: {fileID: 0}
     - target: {fileID: 1067925524328404, guid: 6bbfea6690ef7724ba495c866081f855, type: 3}
       propertyPath: m_Name
       value: PBR_Golem
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184614978622962, guid: 6bbfea6690ef7724ba495c866081f855, type: 3}
+      propertyPath: m_TagString
+      value: Golem
       objectReference: {fileID: 0}
     - target: {fileID: 4408297863206454, guid: 6bbfea6690ef7724ba495c866081f855, type: 3}
       propertyPath: m_RootOrder
@@ -19329,6 +19367,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bbfea6690ef7724ba495c866081f855, type: 3}
+--- !u!195 &1186355783 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 1186355783, guid: 6bbfea6690ef7724ba495c866081f855, type: 3}
+  m_PrefabInstance: {fileID: 1186355778}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1195227106
 PrefabInstance:
   m_ObjectHideFlags: 0

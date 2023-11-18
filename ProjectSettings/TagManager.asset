@@ -11,6 +11,7 @@ TagManager:
   - Collide
   - EnemyGirl
   - Zombie
+  - Golem
   layers:
   - Default
   - TransparentFX

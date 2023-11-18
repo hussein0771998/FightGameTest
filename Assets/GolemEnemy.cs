@@ -1,24 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GolemEnemy : MonoBehaviour
 {
-    public GameObject bombPrefab;
+    [SerializeField] NavMeshAgent golemNavmesh;
+    [SerializeField] Transform player;
+    public bool move;
+    Animator golemAnimator;
     void Start()
     {
-        StartCoroutine(InstaniateBomb());
+        player = GameObject.FindWithTag("Player").GetComponent<Transform>();
+        golemNavmesh.speed = 1;
+        golemAnimator = gameObject.GetComponent<Animator>();
+        golemNavmesh = gameObject.GetComponent<NavMeshAgent>();
+        StartCoroutine(GolemSystem());
     }
 
-    IEnumerator InstaniateBomb()
+
+    void Update()
     {
-        
+        golemNavmesh.SetDestination(player.position);
+    }
+
+    IEnumerator GolemSystem()
+    {
+       
         while (true)
         {
-            yield return new WaitForSeconds(4f);
-            GameObject bomb = Instantiate(bombPrefab, transform.position, transform.rotation);
-            bomb.transform.position += new Vector3(0f, 0f, -3f);
+          
+            yield return new WaitForSeconds(5f);
+            // move = false;
+            golemNavmesh.isStopped = true;
+            golemAnimator.SetBool("walk", false);
+            golemAnimator.SetBool("attack1", true);
+            yield return new WaitForSeconds(1.5f);
+            GolemProjectile.instance.ThrowBomb();
+            yield return new WaitForSeconds(1.5f);
+           // move = true;
+            transform.LookAt(player);
+            golemNavmesh.isStopped = false;
+            golemAnimator.SetBool("walk", true);
+            golemAnimator.SetBool("attack1", false);
         }
-      
+
     }
 }

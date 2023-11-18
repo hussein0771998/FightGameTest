@@ -107,6 +107,7 @@ public class PlayerController : MonoBehaviour
         if (canBomb && !arrow && !Sword)
         {
             BombProjectile.ins.attack();
+            playerAnimator.SetBool("bomb", true);
            
             canBomb = false;
             StartCoroutine(CanBomb());
@@ -115,7 +116,9 @@ public class PlayerController : MonoBehaviour
     }
     private IEnumerator CanBomb()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
+        playerAnimator.SetBool("bomb", false);
+        yield return new WaitForSeconds(2f);
         canBomb = true;
     }
     IEnumerator EndAnimation()
