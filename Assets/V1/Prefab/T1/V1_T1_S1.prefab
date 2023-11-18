@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3311064}
   - component: {fileID: 2380636}
   - component: {fileID: 6401240}
+  - component: {fileID: 6384013753085481679}
   m_Layer: 0
   m_Name: V1_T1_S1
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 119404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.58865815, y: 0.13045657, z: -2.7252083}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.9176595, y: 2.376939, z: 1.9176595}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,3 +99,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 3d5582b4ee67b6142b933c19769451a2, type: 3}
+--- !u!65 &6384013753085481679
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119404}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.20000005, y: 1.200001, z: 2.4001205}
+  m_Center: {x: -0.00049618643, y: 0.09999949, z: -0.00006091596}
