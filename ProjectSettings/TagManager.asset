@@ -10,6 +10,7 @@ TagManager:
   - enemyBug
   - Collide
   - EnemyGirl
+  - Zombie
   layers:
   - Default
   - TransparentFX
