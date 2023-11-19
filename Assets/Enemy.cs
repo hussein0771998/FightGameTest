@@ -95,9 +95,16 @@ public class Enemy : MonoBehaviour
             enemyAnimation.SetBool("walk", false);
 
             if (enemy1Num == 1)
+            {
                 enemyAnimation.SetBool("attack1", true);
+                PlayerPrefs.SetInt("hitplayer", 1);
+            }
             else
+            {
                 enemyAnimation.SetBool("attack2", true);
+                PlayerPrefs.SetInt("hitplayer", 1);
+            }
+               
 
             transform.LookAt(player);
            
