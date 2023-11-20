@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] float zombieDamage;
     [SerializeField] float cannonDamage;
     [SerializeField] float bombDamage;
+    [SerializeField] float GolemDamage;
     bool die = true;
     private void Start()
     {
@@ -57,6 +58,12 @@ public class PlayerHealth : MonoBehaviour
         {
             playerAnim.SetBool("hit", true);
             healthImg.fillAmount -= cannonDamage / 100;
+        } 
+        
+        if(other.tag== "golemarm")
+        {
+            playerAnim.SetBool("hit", true);
+            healthImg.fillAmount -= GolemDamage / 100;
         }
 
 
@@ -82,7 +89,7 @@ public class PlayerHealth : MonoBehaviour
             PlayerPrefs.SetInt("BombHit", 0);
         }
         
-        if (other.tag == "cannon")
+        if (other.tag == "cannon" || other.tag == "golemarm")
         {
             playerAnim.SetBool("hit", false);
         }
