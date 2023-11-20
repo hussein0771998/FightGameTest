@@ -47,6 +47,8 @@ public class ZombEnemy : MonoBehaviour
 
     private void Update()
     {
+        if (player == null)
+            return;
         transform.LookAt(player);
 
         distanceBetween = Vector3.Distance(player.position, transform.position);

@@ -13,6 +13,8 @@ public class UIManager : MonoBehaviour
     private float elapsedTime;
     string formattedTime;
     public int coins = 0;
+    public int totalCoin;
+    public float totalTime;
     private void Awake()
     {
         instance = this;
@@ -28,7 +30,7 @@ public class UIManager : MonoBehaviour
 
         if (!levelTimer.gameObject.activeSelf )
             return;
-        elapsedTime += Time.deltaTime;
+       
         //Debug.Log(PlayerPrefs.GetString("LastTime"));
         UpdateTimerText();
  
@@ -39,17 +41,18 @@ public class UIManager : MonoBehaviour
         
         if (levelStatistic.activeSelf)
         {
-            PlayerPrefs.SetString("LastTime", formattedTime);
+           
 
             statisticTime.text = formattedTime;
             coinStatistic.text = coins.ToString();
-            elapsedTime = 0;
-            coinText.text = "";
+            
+
             return;
         }
         else
         {
-            //Debug.Log("UpdateTimerText() work ");
+            elapsedTime += Time.deltaTime;
+           // Debug.Log("UpdateTimerText() work ");
             // Format the time as minutes:seconds
             formattedTime = FormatTime(elapsedTime);
 
@@ -68,5 +71,15 @@ public class UIManager : MonoBehaviour
         string formattedTime = string.Format("{0:00}:{1:00}", minutes, seconds);
 
         return formattedTime;
+    }
+
+    public void SetCoinTimeToZero()
+    {
+        totalCoin += coins;
+        totalTime += elapsedTime;
+        PlayerPrefs.SetInt("TotalCoin", totalCoin);
+        PlayerPrefs.SetFloat("TotalTime", totalTime);
+        elapsedTime = 0;
+        coins = 0;
     }
 }

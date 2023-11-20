@@ -10,6 +10,8 @@ public class Level : MonoBehaviour
     public bool next;
     public GameObject LevelStatistic;
     bool oneTimeCallUpdate;
+    public GameObject bombButton;
+    public GameObject useBomb;
     private void Start()
     {
         oneTimeCallUpdate = true;
@@ -58,6 +60,15 @@ public class Level : MonoBehaviour
     IEnumerator PlayStatistic()
     {
         yield return new WaitForSeconds(1f);
+        if (enemyTag == "Zombie")
+        {
+            bombButton.SetActive(true);
+            useBomb.SetActive(true);
+
+            Destroy(useBomb, 3f);
+
+        }
+
         LevelStatistic.SetActive(true);
         
     }

@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     public Image healthBar;
     public GameObject coinPrefab;
     int coinNumber = 0;
+    bool playDieOnce;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Arrow")
@@ -69,7 +70,7 @@ public class Enemy : MonoBehaviour
        
         enemyAnimation = gameObject.GetComponent<Animator>();
         enemyNav = gameObject.GetComponent<NavMeshAgent>();
-
+        playDieOnce = true;
 
     }
 
@@ -125,7 +126,14 @@ public class Enemy : MonoBehaviour
         if (healthBar.fillAmount <= 0)
         {
             enemyNav.isStopped = true;
-            enemyAnimation.SetBool("Die", true);
+
+            if (playDieOnce)
+            {
+                enemyAnimation.SetBool("Die", true);
+                playDieOnce = false;
+            }
+                
+
             DropCoin();
            
             Destroy(gameObject,1f);

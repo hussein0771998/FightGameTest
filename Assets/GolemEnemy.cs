@@ -8,7 +8,9 @@ public class GolemEnemy : MonoBehaviour
 {
     [SerializeField] NavMeshAgent golemNavmesh;
     [SerializeField] Transform player;
-    [SerializeField] float damage;
+    [SerializeField] float swordDamage;
+    [SerializeField] float arrowDamage;
+    [SerializeField] float bombDamage;
     public bool move;
     Animator golemAnimator;
     public GameObject golemArm;
@@ -31,20 +33,27 @@ public class GolemEnemy : MonoBehaviour
         if (other.tag == "Sword")
         {
             golemAnimator.SetBool("hit", true);
-            healthBar.fillAmount -= damage / 100;
+            healthBar.fillAmount -= swordDamage / 100;
 
         }
 
         if (other.tag == "Arrow")
         {
-            healthBar.fillAmount -= damage / 100;
+            healthBar.fillAmount -= arrowDamage / 100;
             golemAnimator.SetBool("hit", true);
         }
+
+        if (other.tag == "playerbomb")
+        {
+            healthBar.fillAmount -= bombDamage / 100;
+            golemAnimator.SetBool("hit", true);
+        }
+
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Sword" || other.tag == "Arrow")
+        if (other.tag == "Sword" || other.tag == "Arrow" || other.tag == "playerbomb")
         {
 
             golemAnimator.SetBool("hit", false);
