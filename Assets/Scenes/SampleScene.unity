@@ -8414,6 +8414,14 @@ PrefabInstance:
       propertyPath: healthImg
       value: 
       objectReference: {fileID: 920446168}
+    - target: {fileID: 1678309163, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
+      propertyPath: bombDamage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1678309163, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
+      propertyPath: GolemDamage
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2460710455773509147, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
       propertyPath: MJ
       value: 
