@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
-    public TextMeshProUGUI coinText,levelTimer,statisticTime,coinStatistic;
+    public TextMeshProUGUI coinText,levelTimer,statisticTime,coinStatistic,loseCoin,LoseTime;
     public GameObject levelStatistic;
     private float elapsedTime;
     string formattedTime;
     public int coins = 0;
     public int totalCoin;
     public float totalTime;
+
     private void Awake()
     {
         instance = this;
@@ -81,5 +83,20 @@ public class UIManager : MonoBehaviour
         PlayerPrefs.SetFloat("TotalTime", totalTime);
         elapsedTime = 0;
         coins = 0;
+    }
+
+    public void Lose(GameObject _lose)
+    {
+        
+        _lose.SetActive(true);
+        loseCoin.text = PlayerPrefs.GetInt("TotalCoin").ToString();
+        string loseTime= FormatTime(PlayerPrefs.GetFloat("TotalTime"));
+        LoseTime.text = loseTime;
+
+    }
+
+    public void LoadSceneMode(string _scene)
+    {
+        SceneManager.LoadScene(_scene);
     }
 }

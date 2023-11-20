@@ -14,6 +14,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] float bombDamage;
     [SerializeField] float GolemDamage;
     bool die = true;
+
+    public GameObject loseMenu;
     private void Start()
     {
         playerAnim = GameObject.FindWithTag("Player").GetComponent<Animator>();
@@ -104,9 +106,18 @@ public class PlayerHealth : MonoBehaviour
             if (die)
             {
                 playerAnim.SetTrigger("die");
-                Destroy(gameObject, 1.5f);
+                StartCoroutine(EndGame());
+               
+               
             }
             die = false;
         }
+    }
+
+    IEnumerator EndGame()
+    {
+        yield return new WaitForSeconds(1.5f);
+        UIManager.instance.Lose(loseMenu);
+        Destroy(gameObject, 1.5f);
     }
 }
