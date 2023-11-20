@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class GolemEnemy : MonoBehaviour
 {
+    public GameObject winMenu;
     [SerializeField] NavMeshAgent golemNavmesh;
     [SerializeField] Transform player;
     [SerializeField] float swordDamage;
@@ -74,11 +75,17 @@ public class GolemEnemy : MonoBehaviour
             if (oneTimePlayUpdate)
             {
                 golemAnimator.SetBool("die", true);
-                Destroy(gameObject, 2f);
+                StartCoroutine(PlayWin());
                 oneTimePlayUpdate = false;
             }
         }
         
+    }
+    IEnumerator PlayWin()
+    {
+        yield return new WaitForSeconds(2f);
+        UIManager.instance.Win(winMenu);
+        Destroy(gameObject, 2f);
     }
 
     IEnumerator GolemSystem()

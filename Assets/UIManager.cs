@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
-    public TextMeshProUGUI coinText,levelTimer,statisticTime,coinStatistic,loseCoin,LoseTime;
+    public TextMeshProUGUI coinText,levelTimer,statisticTime,coinStatistic,loseCoin,LoseTime,winCoin,winTime;
     public GameObject levelStatistic;
     private float elapsedTime;
     string formattedTime;
@@ -92,6 +92,15 @@ public class UIManager : MonoBehaviour
         loseCoin.text = PlayerPrefs.GetInt("TotalCoin").ToString();
         string loseTime= FormatTime(PlayerPrefs.GetFloat("TotalTime"));
         LoseTime.text = loseTime;
+
+    }
+     public void Win(GameObject _win)
+    {
+
+        _win.SetActive(true);
+        winCoin.text = PlayerPrefs.GetInt("TotalCoin").ToString();
+        string wintime= FormatTime(PlayerPrefs.GetFloat("TotalTime"));
+        winTime.text = wintime;
 
     }
 
