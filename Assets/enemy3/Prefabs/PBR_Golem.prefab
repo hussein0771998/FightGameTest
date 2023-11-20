@@ -245,8 +245,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.776759
-  m_Center: {x: -0, y: 1.7773198, z: 0}
+  m_Radius: 2.1659517
+  m_Center: {x: -0, y: 1.3881272, z: 0}
 --- !u!114 &1186355780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6dc798ed40f2d24faab96ec2c7706e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  golemNavmesh: {fileID: 0}
+  golemNavmesh: {fileID: 1186355783}
   player: {fileID: 0}
   move: 0
 --- !u!195 &1186355783
@@ -461,9 +461,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4894528786394434}
+  - component: {fileID: 501579107}
   m_Layer: 0
   m_Name: Hand_L
-  m_TagString: Untagged
+  m_TagString: Golem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -484,6 +485,19 @@ Transform:
   m_Father: {fileID: 4014858108367756}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &501579107
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184614978622962}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 196.79472, y: 94.86184, z: 138.04056}
+  m_Center: {x: -15.568494, y: -3.7661848, z: 11.82091}
 --- !u!1 &1265240290402662
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public class GolemEnemy : MonoBehaviour
     Animator golemAnimator;
     void Start()
     {
+       
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         golemNavmesh.speed = 1;
         golemAnimator = gameObject.GetComponent<Animator>();
@@ -21,28 +22,41 @@ public class GolemEnemy : MonoBehaviour
 
     void Update()
     {
+        if (player == null)
+            return;
         golemNavmesh.SetDestination(player.position);
     }
 
     IEnumerator GolemSystem()
     {
-       
+        
         while (true)
         {
-          
-            yield return new WaitForSeconds(5f);
+            if (player == null)
+                yield break;
+
+            yield return new WaitForSeconds(8f);
             // move = false;
             golemNavmesh.isStopped = true;
+            golemAnimator.SetBool("victory", false);
             golemAnimator.SetBool("walk", false);
             golemAnimator.SetBool("attack1", true);
             yield return new WaitForSeconds(1.5f);
             GolemProjectile.instance.ThrowBomb();
             yield return new WaitForSeconds(1.5f);
-           // move = true;
+               
+            golemAnimator.SetBool("walk", false);
+            golemAnimator.SetBool("victory", true);
+            golemAnimator.SetBool("attack1", false);
+           // golemNavmesh.isStopped = true;
+            yield return new WaitForSeconds(3.2f);
+            // move = true;
             transform.LookAt(player);
             golemNavmesh.isStopped = false;
             golemAnimator.SetBool("walk", true);
-            golemAnimator.SetBool("attack1", false);
+            golemAnimator.SetBool("victory", false);
+           
+            
         }
 
     }

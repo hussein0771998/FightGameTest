@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
     {
         if (canBomb && !arrow && !Sword)
         {
-            BombProjectile.ins.attack();
+            BombProjectile.ins.Attack();
             playerAnimator.SetBool("bomb", true);
            
             canBomb = false;

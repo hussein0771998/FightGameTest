@@ -75,9 +75,13 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        
+        if (player == null)
+            return;
+
+
         distanceBetween = Vector3.Distance(player.position, transform.position);
-      //  Debug.Log(distanceBetween);
+
+        //  Debug.Log(distanceBetween);
         if (distanceBetween <= 7f && distanceBetween > enemyNav.stoppingDistance)
         {
 
@@ -97,12 +101,12 @@ public class Enemy : MonoBehaviour
             if (enemy1Num == 1)
             {
                 enemyAnimation.SetBool("attack1", true);
-                PlayerPrefs.SetInt("hitplayer", 1);
+                PlayerPrefs.SetInt("girlhitplayer", 1);
             }
             else
             {
                 enemyAnimation.SetBool("attack2", true);
-                PlayerPrefs.SetInt("hitplayer", 1);
+                PlayerPrefs.SetInt("girlhitplayer", 1);
             }
                
 
@@ -124,7 +128,7 @@ public class Enemy : MonoBehaviour
             enemyAnimation.SetBool("Die", true);
             DropCoin();
            
-            Destroy(gameObject,2f);
+            Destroy(gameObject,1f);
         }
     }
 

@@ -6,8 +6,9 @@ public class CannonSystem : MonoBehaviour
 {
     public GameObject cannon;
     Transform Player;
-    int stoneCount = 0;
-    bool playerIn;
+    //int stoneCount = 0;
+    public bool playerIn;
+    private bool isAttacking = false;
     private void Start()
     {
         Player = GameObject.FindWithTag("Player").transform;
@@ -23,11 +24,12 @@ public class CannonSystem : MonoBehaviour
         if (other.tag == "Player")
         {
             playerIn = false;
+            
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && !isAttacking)
         {
             playerIn = true;
             StartCoroutine(AttackSystem());
@@ -36,13 +38,16 @@ public class CannonSystem : MonoBehaviour
     
     IEnumerator AttackSystem()
     {
+        isAttacking = true;
         while (playerIn)
         {
-            yield return new WaitForSeconds(2f);
+            Debug.Log("attackStone out");
 
             CannonEnemy.instance.AttackStone();
-            Debug.Log("cannon");
-        }
+            yield return new WaitForSeconds(3f);
 
+           // Debug.Log("cannon");
+        }
+        isAttacking = false;
     }
 }

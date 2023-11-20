@@ -15,11 +15,13 @@ public class CannonEnemy : MonoBehaviour
     }
     public void AttackStone()
     {
+       
         GameObject stone= Instantiate(stonePrefab, transform.position, Quaternion.identity);
         _rb = stone.GetComponent<Rigidbody>();
         _rb.AddForce(transform.forward * 14f, ForceMode.VelocityChange);
         stoneFire.Play();
-        Destroy(stone, 2f);
+        Destroy(stone, 1.25f);
+        Debug.Log("attackStone in");
     }
 
 }

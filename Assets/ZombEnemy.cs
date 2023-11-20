@@ -65,8 +65,9 @@ public class ZombEnemy : MonoBehaviour
             enemyNav.isStopped = true;
             enemyAnimation.SetBool("walk", false);
             enemyAnimation.SetBool("attack", true);
+            PlayerPrefs.SetInt("zombieHit", 1);
         }
-       
+
     }
 
     IEnumerator DropCoin()

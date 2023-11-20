@@ -6,7 +6,7 @@ using TMPro;
 
 public class StartGameTimer : MonoBehaviour
 {
-    public TextMeshProUGUI timerText;
+    public TextMeshProUGUI timerText,levelTimer;
     public Image timerIcon;
     public float timer = 3f;
     public Image backGround;
@@ -30,7 +30,7 @@ public class StartGameTimer : MonoBehaviour
         {
             playerStartGame.Play();
             wallAnim.SetBool("down", true);
-            
+            levelTimer.gameObject.SetActive(true);
             Destroy(gameObject);
             Destroy(backGround.gameObject);
            

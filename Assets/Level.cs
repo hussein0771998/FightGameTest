@@ -4,17 +4,25 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
+    public GameObject cannon;
     public List<GameObject> enemys;
-    public GameObject wall,nextLevel;
     public string enemyTag;
     public bool next;
-    
+    public GameObject LevelStatistic;
+    bool oneTimeCallUpdate;
     private void Start()
     {
+        oneTimeCallUpdate = true;
         GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag(enemyTag);
         enemys.AddRange(enemyObjects);
-    }
 
+        if (enemyTag == "EnemyGirl")
+            PlayerPrefs.SetInt("levelNumber", 0);
+
+        if (enemyTag == "Zombie")
+            PlayerPrefs.SetInt("levelNumber", 1);
+    }
+    
     private void Update()
     {
         for (int i = enemys.Count - 1; i >= 0; i--)
@@ -31,12 +39,28 @@ public class Level : MonoBehaviour
 
         if (enemys.Count == 0)
         {
-            wall.GetComponent<Animator>().SetBool("down", true);
-            //Debug.Log("all killed");
-            if(next)
-                nextLevel.SetActive(true);
 
-            Destroy(gameObject, 3f);
+            if (oneTimeCallUpdate)
+            {
+                if (enemyTag == "Zombie")
+                    Destroy(cannon);
+
+                oneTimeCallUpdate = false;
+                StartCoroutine(PlayStatistic());
+
+            }
+            //Destroy(gameObject, 2f);
+
+            
         }
     }
+
+    IEnumerator PlayStatistic()
+    {
+        yield return new WaitForSeconds(1f);
+        LevelStatistic.SetActive(true);
+        
+    }
+
+  
 }

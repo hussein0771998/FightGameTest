@@ -11,8 +11,19 @@ public class BombSystem : MonoBehaviour
     float distanceBetween;
     public ParticleSystem smoke;
     bool playVFX = true;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "playerbomb")
+        {
+            Destroy(gameObject);
+        }
+
+    }
     void Start()
     {
+        
+     
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         bombNavmesh = gameObject.GetComponent<NavMeshAgent>();
         bombAnimator = gameObject.GetComponent<Animator>();
@@ -21,6 +32,8 @@ public class BombSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player == null)
+            return;
        // Debug.Log("distanceBetween =  " + distanceBetween);
         distanceBetween = Vector3.Distance(player.position, transform.position);
 
@@ -37,6 +50,7 @@ public class BombSystem : MonoBehaviour
                     bombAnimator.SetBool("attack01",true);
                    
                     smoke.Play();
+                    PlayerPrefs.SetInt("BombHit", 1);
                     Destroy(gameObject, 1f);
                     playVFX = false;
                 }

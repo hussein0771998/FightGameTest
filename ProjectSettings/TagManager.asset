@@ -12,6 +12,12 @@ TagManager:
   - EnemyGirl
   - Zombie
   - Golem
+  - girl
+  - ZombieHit
+  - cannon
+  - bomb
+  - playerbomb
+  - golemarm
   layers:
   - Default
   - TransparentFX
