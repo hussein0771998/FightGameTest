@@ -87,7 +87,8 @@ public class PlayerController : MonoBehaviour
             playerAnimator.SetBool(randomAnimation, true);
             
             PlayerPrefs.SetInt("shootSword1", 1);
-           
+
+            AudioManager.instance.PlaySFX("sword");
         }
 
         if (arrow && ArrowProjectTile.instance.canShoot)
@@ -95,7 +96,7 @@ public class PlayerController : MonoBehaviour
             playerAnimator.SetBool("shootArrow", true);
             ArrowProjectTile.instance.ShootArow();
             PlayerPrefs.SetInt("shootarrow1", 1);
-
+            AudioManager.instance.PlaySFX("arrow");
         }
 
 

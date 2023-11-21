@@ -9,6 +9,8 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
+    public Slider musicSlider, sfxSlider;
+    public Image ofSound, ofMusic;
     public TextMeshProUGUI coinText,levelTimer,statisticTime,coinStatistic,loseCoin,LoseTime,winCoin,winTime;
     public GameObject levelStatistic;
     private float elapsedTime;
@@ -23,9 +25,45 @@ public class UIManager : MonoBehaviour
     }
     private void Start()
     {
+        AudioManager.instance.PlayMusic("enemy1");
         elapsedTime = 0f;
     }
+    public void ToggleMusic()
+    {
+        ofMusic.enabled = !ofMusic.enabled;
+        AudioManager.instance.ToggleMusic();
+        if (ofMusic.enabled)
+        {
+            musicSlider.value = 0f;
+        }
+        else
+        {
+            musicSlider.value = 0.1f;
+        }
+        
+    }
+    public void ToggleSFX()
+    {
+        AudioManager.instance.ToggleSFX();
+        ofSound.enabled = !ofSound.enabled;
+        if (ofSound.enabled)
+        {
+            sfxSlider.value = 0f;
+        }
+        else
+        {
+            sfxSlider.value = 0.1f;
+        }
+    }
 
+    public void MusicVolume()
+    {
+        AudioManager.instance.MusicVolume(musicSlider.value);
+    }
+    public void SFXVolume()
+    {
+        AudioManager.instance.SFXVolume(sfxSlider.value);
+    }
     private void Update()
     {
         coinText.text = coins.ToString();
@@ -87,7 +125,8 @@ public class UIManager : MonoBehaviour
 
     public void Lose(GameObject _lose)
     {
-        
+        AudioManager.instance.musicSource.Stop();
+        AudioManager.instance.PlaySFX("lose");
         _lose.SetActive(true);
         loseCoin.text = PlayerPrefs.GetInt("TotalCoin").ToString();
         string loseTime= FormatTime(PlayerPrefs.GetFloat("TotalTime"));
@@ -96,7 +135,8 @@ public class UIManager : MonoBehaviour
     }
      public void Win(GameObject _win)
     {
-
+        AudioManager.instance.musicSource.Stop();
+        AudioManager.instance.PlaySFX("win");
         _win.SetActive(true);
         winCoin.text = PlayerPrefs.GetInt("TotalCoin").ToString();
         string wintime= FormatTime(PlayerPrefs.GetFloat("TotalTime"));

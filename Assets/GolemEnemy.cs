@@ -20,6 +20,7 @@ public class GolemEnemy : MonoBehaviour
     bool oneTimePlayUpdate;
     void Start()
     {
+        AudioManager.instance.PlayMusic("enemy3");
         oneTimePlayUpdate = true;
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
         golemNavmesh.speed = 1;

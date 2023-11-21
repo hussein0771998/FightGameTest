@@ -48,7 +48,7 @@ public class ManagerJoystic : MonoBehaviour, IDragHandler, IPointerDownHandler, 
     {
         OnDrag(eventData);
         walk = true;
-        imgJoystic.color = Color.blue;
+       // imgJoystic.color = Color.blue;
     }
     public void OnPointerUp(PointerEventData eventData)
     {

@@ -37,6 +37,7 @@ public class ZombEnemy : MonoBehaviour
     }
     private void Start()
     {
+        AudioManager.instance.PlayMusic("enemy2");
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
 
         enemyAnimation = gameObject.GetComponent<Animator>();
