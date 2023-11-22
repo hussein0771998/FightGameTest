@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
-
+using GameAnalyticsSDK;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
@@ -25,6 +25,7 @@ public class UIManager : MonoBehaviour
     }
     private void Start()
     {
+        GameAnalytics.Initialize();
         AudioManager.instance.PlayMusic("enemy1");
         elapsedTime = 0f;
     }
@@ -132,7 +133,7 @@ public class UIManager : MonoBehaviour
         loseCoin.text = PlayerPrefs.GetInt("TotalCoin").ToString();
         string loseTime= FormatTime(PlayerPrefs.GetFloat("TotalTime"));
         LoseTime.text = loseTime;
-
+        GameAnalytics.NewDesignEvent("CoinCollected", PlayerPrefs.GetInt("TotalCoin"));
     }
      public void Win(GameObject _win)
     {
