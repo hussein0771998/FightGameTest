@@ -128,6 +128,7 @@ public class UIManager : MonoBehaviour
         AudioManager.instance.musicSource.Stop();
         AudioManager.instance.PlaySFX("lose");
         _lose.SetActive(true);
+        SetCoinTimeToZero();
         loseCoin.text = PlayerPrefs.GetInt("TotalCoin").ToString();
         string loseTime= FormatTime(PlayerPrefs.GetFloat("TotalTime"));
         LoseTime.text = loseTime;
@@ -138,8 +139,9 @@ public class UIManager : MonoBehaviour
         AudioManager.instance.musicSource.Stop();
         AudioManager.instance.PlaySFX("win");
         _win.SetActive(true);
+        SetCoinTimeToZero();
         winCoin.text = PlayerPrefs.GetInt("TotalCoin").ToString();
-        string wintime= FormatTime(PlayerPrefs.GetFloat("TotalTime"));
+        string wintime = FormatTime(PlayerPrefs.GetFloat("TotalTime"));
         winTime.text = wintime;
 
     }

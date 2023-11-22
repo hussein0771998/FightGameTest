@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
             //Debug.Log("Hit By Arrow ");
             if (PlayerPrefs.GetInt("shootarrow1") == 1)
             {
+                AudioManager.instance.PlayEnemySFX("girl hit");
                 Debug.Log("Hit By arrow ");
                 enemyAnimation.SetBool("hit2", true);
                 healthBar.fillAmount -= 0.35f;
@@ -38,6 +39,7 @@ public class Enemy : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("shootSword1") == 1)
             {
+                AudioManager.instance.PlayEnemySFX("girl hits");
                 healthBar.fillAmount -= 0.35f;
                 Debug.Log("Hit By Sword ");
                 enemyAnimation.SetBool("hit",true);
@@ -103,9 +105,11 @@ public class Enemy : MonoBehaviour
             {
                 enemyAnimation.SetBool("attack1", true);
                 PlayerPrefs.SetInt("girlhitplayer", 1);
+               
             }
             else
             {
+               
                 enemyAnimation.SetBool("attack2", true);
                 PlayerPrefs.SetInt("girlhitplayer", 1);
             }
@@ -130,6 +134,7 @@ public class Enemy : MonoBehaviour
             if (playDieOnce)
             {
                 enemyAnimation.SetBool("Die", true);
+                AudioManager.instance.PlayEnemySFX("girl die");
                 playDieOnce = false;
             }
                 

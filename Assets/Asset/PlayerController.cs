@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
         {
             BombProjectile.ins.Attack();
             playerAnimator.SetBool("bomb", true);
-           
+            
             canBomb = false;
             StartCoroutine(CanBomb());
         }

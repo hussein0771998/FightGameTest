@@ -20,6 +20,7 @@ public class CannonEnemy : MonoBehaviour
         _rb = stone.GetComponent<Rigidbody>();
         _rb.AddForce(transform.forward * 14f, ForceMode.VelocityChange);
         stoneFire.Play();
+        AudioManager.instance.PlaySFX("bomb");
         Destroy(stone, 1.25f);
         Debug.Log("attackStone in");
     }

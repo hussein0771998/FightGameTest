@@ -28,6 +28,7 @@ public class BombProjectile : MonoBehaviour
         yield return new WaitForSeconds(2f);
         bombCollider.enabled = true;
         particl.Play();
+        AudioManager.instance.PlaySFX("bomb");
         yield return new WaitForSeconds(1f);
         Destroy(bomb);
     }

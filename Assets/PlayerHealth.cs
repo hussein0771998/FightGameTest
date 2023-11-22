@@ -27,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if(PlayerPrefs.GetInt("girlhitplayer")== 1)
             {
+                AudioManager.instance.PlaySFX("hit");
                 playerAnim.SetBool("hit",true);
                // playerRB.constraints = RigidbodyConstraints.None; // Allow movement
                 playerRB.AddForce(-transform.forward * 2f, ForceMode.VelocityChange); // Adjust force
@@ -40,6 +41,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("zombieHit") == 1)
             {
+                AudioManager.instance.PlaySFX("hit");
                 playerAnim.SetBool("hit", true);
                 healthImg.fillAmount -= zombieDamage / 100;
             }
@@ -50,6 +52,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("BombHit") == 1)
             {
+                AudioManager.instance.PlaySFX("hit");
                 playerAnim.SetBool("hit", true);
                 healthImg.fillAmount -= bombDamage / 100;
             }
@@ -58,12 +61,14 @@ public class PlayerHealth : MonoBehaviour
 
         if(other.tag== "cannon")
         {
+            AudioManager.instance.PlaySFX("hit");
             playerAnim.SetBool("hit", true);
             healthImg.fillAmount -= cannonDamage / 100;
         } 
         
         if(other.tag== "golemarm")
         {
+            AudioManager.instance.PlaySFX("hit");
             playerAnim.SetBool("hit", true);
             healthImg.fillAmount -= GolemDamage / 100;
         }
@@ -105,6 +110,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (die)
             {
+                AudioManager.instance.PlaySFX("die");
                 playerAnim.SetTrigger("die");
                 StartCoroutine(EndGame());
                

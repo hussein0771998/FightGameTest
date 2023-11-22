@@ -34,6 +34,7 @@ public class GolemEnemy : MonoBehaviour
     {
         if (other.tag == "Sword")
         {
+            AudioManager.instance.PlayEnemySFX("golem hit");
             golemAnimator.SetBool("hit", true);
             healthBar.fillAmount -= swordDamage / 100;
 
@@ -41,12 +42,14 @@ public class GolemEnemy : MonoBehaviour
 
         if (other.tag == "Arrow")
         {
+            AudioManager.instance.PlayEnemySFX("golem hit");
             healthBar.fillAmount -= arrowDamage / 100;
             golemAnimator.SetBool("hit", true);
         }
 
         if (other.tag == "playerbomb")
         {
+            AudioManager.instance.PlayEnemySFX("golem hit");
             healthBar.fillAmount -= bombDamage / 100;
             golemAnimator.SetBool("hit", true);
         }
@@ -75,6 +78,7 @@ public class GolemEnemy : MonoBehaviour
         {
             if (oneTimePlayUpdate)
             {
+                AudioManager.instance.PlayEnemySFX("golem die");
                 golemAnimator.SetBool("die", true);
                 StartCoroutine(PlayWin());
                 oneTimePlayUpdate = false;
@@ -102,6 +106,7 @@ public class GolemEnemy : MonoBehaviour
             golemAnimator.SetBool("walk", false);
             golemAnimator.SetBool("victory", false);
             golemAnimator.SetBool("attack2", true);
+            AudioManager.instance.PlayEnemySFX("golem attack");
             arm.enabled = true;
             yield return new WaitForSeconds(2f);
             arm.enabled = false;
@@ -116,6 +121,7 @@ public class GolemEnemy : MonoBehaviour
                
             golemAnimator.SetBool("walk", false);
             golemAnimator.SetBool("victory", true);
+            AudioManager.instance.PlayEnemySFX("golem victory");
             golemAnimator.SetBool("attack1", false);
            // golemNavmesh.isStopped = true;
             yield return new WaitForSeconds(3.2f);

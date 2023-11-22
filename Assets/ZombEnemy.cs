@@ -22,6 +22,7 @@ public class ZombEnemy : MonoBehaviour
            
             if (PlayerPrefs.GetInt("shootarrow1") == 1 || PlayerPrefs.GetInt("shootSword1") == 1)
             {
+                AudioManager.instance.PlayEnemySFX("zombie die");
                 enemyAnimation.SetBool("Die", true);
                 PlayerPrefs.SetInt("shootarrow1", 0);
                 PlayerPrefs.SetInt("shootSword1", 0);
