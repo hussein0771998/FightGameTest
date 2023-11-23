@@ -25,7 +25,7 @@ public class UIManager : MonoBehaviour
     }
     private void Start()
     {
-        GameAnalytics.Initialize();
+        
         AudioManager.instance.PlayMusic("enemy1");
         elapsedTime = 0f;
     }

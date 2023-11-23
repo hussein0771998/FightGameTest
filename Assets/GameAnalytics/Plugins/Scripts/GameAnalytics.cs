@@ -343,7 +343,6 @@ namespace GameAnalyticsSDK
             }
             GA_Business.NewEvent(currency, amount, itemType, itemId, cartType, receipt, false, customFields, mergeFields);
         }
-
         /// <summary>
         /// Track any real money transaction in-game (iOS version). Additionally fetch and attach the in-app purchase receipt.
         /// </summary>
