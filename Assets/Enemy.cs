@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     public GameObject coinPrefab;
     int coinNumber = 0;
     bool playDieOnce;
+    public SphereCollider girlGun;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Arrow")
@@ -133,6 +134,7 @@ public class Enemy : MonoBehaviour
 
             if (playDieOnce)
             {
+                girlGun.enabled = false;
                 enemyAnimation.SetBool("Die", true);
                 AudioManager.instance.PlayEnemySFX("girl die");
                 playDieOnce = false;

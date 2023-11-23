@@ -1908,6 +1908,7 @@ MonoBehaviour:
   enemyAnimation: {fileID: 0}
   followSpeed: 1
   coinPrefab: {fileID: 1498403948531744, guid: fa2c57d3f28a5e6419393e8bc3eeb32a, type: 3}
+  zombieCollider: {fileID: 1408602250}
 --- !u!195 &234224901
 NavMeshAgent:
   m_ObjectHideFlags: 0

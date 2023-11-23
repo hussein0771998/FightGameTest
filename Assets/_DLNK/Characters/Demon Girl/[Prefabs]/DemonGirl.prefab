@@ -2368,6 +2368,7 @@ MonoBehaviour:
   enemy1Num: 1
   healthBar: {fileID: 1980411654}
   coinPrefab: {fileID: 1498403948531744, guid: fa2c57d3f28a5e6419393e8bc3eeb32a, type: 3}
+  girlGun: {fileID: 1297865210}
 --- !u!195 &1824603198
 NavMeshAgent:
   m_ObjectHideFlags: 0
