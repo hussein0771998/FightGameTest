@@ -33,9 +33,9 @@ public class PlayerHealth : MonoBehaviour
                 AudioManager.instance.PlaySFX("hit");
                 playerAnim.SetBool("hit",true);
                // playerRB.constraints = RigidbodyConstraints.None; // Allow movement
-                playerRB.AddForce(-transform.forward * 2f, ForceMode.VelocityChange); // Adjust force
+               /* playerRB.AddForce(-transform.forward * 2f, ForceMode.VelocityChange); // Adjust force
                 playerRB.interpolation = RigidbodyInterpolation.None; // Disable interpolation
-                Debug.Log("girl Hit Player");
+                Debug.Log("girl Hit Player");*/
 
                 healthImg.fillAmount -= EnemygirlDamage / 100;
             }
@@ -78,8 +78,12 @@ public class PlayerHealth : MonoBehaviour
 
         if (other.tag == "health")
         {
-            healthImg.fillAmount += healthEarn / 100;
-            Destroy(other.gameObject);
+            if (healthImg.fillAmount < 1)
+            {
+                healthImg.fillAmount += healthEarn / 100;
+                Destroy(other.gameObject);
+            }
+         
         }
     }
 
