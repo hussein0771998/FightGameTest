@@ -3409,6 +3409,11 @@ MonoBehaviour:
   EnemygirlDamage: 5
   zombieDamage: 5
   cannonDamage: 5
+  bombDamage: 3
+  GolemDamage: 5
+  healthEarn: 50
+  cameraShake: {fileID: 0}
+  loseMenu: {fileID: 0}
 --- !u!1 &3948362340856762739
 GameObject:
   m_ObjectHideFlags: 0
