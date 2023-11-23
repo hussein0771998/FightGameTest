@@ -18,6 +18,7 @@ TagManager:
   - bomb
   - playerbomb
   - golemarm
+  - health
   layers:
   - Default
   - TransparentFX

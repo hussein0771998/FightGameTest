@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using DG.Tweening;
 public class PlayerHealth : MonoBehaviour
 {
     Animator playerAnim;
@@ -13,8 +13,9 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] float cannonDamage;
     [SerializeField] float bombDamage;
     [SerializeField] float GolemDamage;
+    [SerializeField] float healthEarn;
     bool die = true;
-
+    public DOTweenAnimation cameraShake;
     public GameObject loseMenu;
     private void Start()
     {
@@ -27,6 +28,8 @@ public class PlayerHealth : MonoBehaviour
         {
             if(PlayerPrefs.GetInt("girlhitplayer")== 1)
             {
+                cameraShake.DORestart();
+                
                 AudioManager.instance.PlaySFX("hit");
                 playerAnim.SetBool("hit",true);
                // playerRB.constraints = RigidbodyConstraints.None; // Allow movement
@@ -73,13 +76,18 @@ public class PlayerHealth : MonoBehaviour
             healthImg.fillAmount -= GolemDamage / 100;
         }
 
-
+        if (other.tag == "health")
+        {
+            healthImg.fillAmount += healthEarn / 100;
+            Destroy(other.gameObject);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "girl")
         {
+           
             playerAnim.SetBool("hit", false);
             PlayerPrefs.SetInt("girlhitplayer", 0);
         }
