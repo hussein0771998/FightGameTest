@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 766b7b41515da794ba4c95ca8ccbbe81
 ModelImporter:
-  serializedVersion: 20200
+  serializedVersion: 21300
   internalIDToNameTable:
   - first:
       1: 100000
@@ -368,6 +368,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Inbetween bone
@@ -387,9 +388,9 @@ ModelImporter:
       (8.0%) Frame 10\n\tLeftFoot average position error 0.2 mm and maximum position
       error 2.3 mm at time 0: 6 (4.8%) Frame 6\n\tLeftUpperArm average position error
       33.1 mm and maximum position error 38.9 mm at time 3:15 (84.0%) Frame 105\n\tLeftLowerArm
-      average position error 31.6 mm and maximum position error 37.4 mm at time 2:27
-      (69.6%) Frame 87\n\tLeftHand average position error 31.0 mm and maximum position
-      error 38.3 mm at time 3: 0 (72.0%) Frame 90\n\tRightUpperArm average position
+      average position error 30.4 mm and maximum position error 39.9 mm at time 3:
+      6 (76.8%) Frame 96\n\tLeftHand average position error 30.3 mm and maximum position
+      error 38.8 mm at time 3:12 (81.6%) Frame 102\n\tRightUpperArm average position
       error 30.4 mm and maximum position error 37.4 mm at time 3:15 (84.0%) Frame
       105\n\tRightLowerArm average position error 15.6 mm and maximum position error
       20.4 mm at time 4: 5 (100.0%) Frame 125\n\tRightHand average position error
@@ -440,7 +441,7 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 0.23
-    meshCompression: 0
+    meshCompression: 2
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
@@ -448,6 +449,7 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
     fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -459,6 +461,7 @@ ModelImporter:
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
+    optimizeBones: 1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
@@ -1167,13 +1170,13 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: d3b617d4c5387004fa355973611faee7,
-    type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: d3b617d4c5387004fa355973611faee7, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
   avatarSetup: 2
   addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
