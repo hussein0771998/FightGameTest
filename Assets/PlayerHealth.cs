@@ -44,6 +44,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("zombieHit") == 1)
             {
+                cameraShake.DORestart();
                 AudioManager.instance.PlaySFX("hit");
                 playerAnim.SetBool("hit", true);
                 healthImg.fillAmount -= zombieDamage / 100;
@@ -55,6 +56,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("BombHit") == 1)
             {
+                cameraShake.DORestart();
                 AudioManager.instance.PlaySFX("hit");
                 playerAnim.SetBool("hit", true);
                 healthImg.fillAmount -= bombDamage / 100;
@@ -64,6 +66,7 @@ public class PlayerHealth : MonoBehaviour
 
         if(other.tag== "cannon")
         {
+            cameraShake.DORestart();
             AudioManager.instance.PlaySFX("hit");
             playerAnim.SetBool("hit", true);
             healthImg.fillAmount -= cannonDamage / 100;
@@ -71,6 +74,7 @@ public class PlayerHealth : MonoBehaviour
         
         if(other.tag== "golemarm")
         {
+            cameraShake.DORestart();
             AudioManager.instance.PlaySFX("hit");
             playerAnim.SetBool("hit", true);
             healthImg.fillAmount -= GolemDamage / 100;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class ZombEnemy : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class ZombEnemy : MonoBehaviour
     int coinNumber = 1;
     public SphereCollider zombieCollider;
     public ParticleSystem hitPartical;
+    public DOTweenAnimation cameraShake;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Arrow" || other.tag=="Player")
@@ -24,6 +26,7 @@ public class ZombEnemy : MonoBehaviour
            
             if (PlayerPrefs.GetInt("shootarrow1") == 1 || PlayerPrefs.GetInt("shootSword1") == 1)
             {
+                cameraShake.DORestart();
                 hitPartical.Play();
                 AudioManager.instance.PlayEnemySFX("zombie die");
                 enemyAnimation.SetBool("Die", true);

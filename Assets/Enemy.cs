@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class Enemy : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Enemy : MonoBehaviour
     bool playDieOnce;
     public SphereCollider girlGun;
     public ParticleSystem hitPartical;
+    public DOTweenAnimation cameraShake;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Arrow")
@@ -25,6 +27,7 @@ public class Enemy : MonoBehaviour
             //Debug.Log("Hit By Arrow ");
             if (PlayerPrefs.GetInt("shootarrow1") == 1)
             {
+                cameraShake.DORestart();
                 hitPartical.Play();
                 AudioManager.instance.PlayEnemySFX("girl hit");
                 Debug.Log("Hit By arrow ");
@@ -42,6 +45,7 @@ public class Enemy : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("shootSword1") == 1)
             {
+                cameraShake.DORestart();
                 hitPartical.Play();
                 AudioManager.instance.PlayEnemySFX("girl hits");
                 healthBar.fillAmount -= 0.35f;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
-
+using DG.Tweening;
 public class GolemEnemy : MonoBehaviour
 {
     public GameObject winMenu;
@@ -19,6 +19,7 @@ public class GolemEnemy : MonoBehaviour
     public Image healthBar;
     bool oneTimePlayUpdate;
     public ParticleSystem hitPartical;
+    public DOTweenAnimation cameraShake;
     void Start()
     {
         AudioManager.instance.PlayMusic("enemy3");
@@ -35,6 +36,7 @@ public class GolemEnemy : MonoBehaviour
     {
         if (other.tag == "Sword")
         {
+            cameraShake.DORestart();
             hitPartical.Play();
             AudioManager.instance.PlayEnemySFX("golem hit");
             golemAnimator.SetBool("hit", true);
@@ -44,6 +46,7 @@ public class GolemEnemy : MonoBehaviour
 
         if (other.tag == "Arrow")
         {
+            cameraShake.DORestart();
             hitPartical.Play();
             AudioManager.instance.PlayEnemySFX("golem hit");
             healthBar.fillAmount -= arrowDamage / 100;
@@ -52,6 +55,7 @@ public class GolemEnemy : MonoBehaviour
 
         if (other.tag == "playerbomb")
         {
+            cameraShake.DORestart();
             hitPartical.Play();
             AudioManager.instance.PlayEnemySFX("golem hit");
             healthBar.fillAmount -= bombDamage / 100;
