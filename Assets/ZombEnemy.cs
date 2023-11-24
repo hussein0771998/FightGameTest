@@ -21,7 +21,7 @@ public class ZombEnemy : MonoBehaviour
     public DOTweenAnimation cameraShake;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Arrow" || other.tag=="Player")
+        if (other.tag == "Arrow" || other.tag == "Player")
         {
            
             if (PlayerPrefs.GetInt("shootarrow1") == 1 || PlayerPrefs.GetInt("shootSword1") == 1)
