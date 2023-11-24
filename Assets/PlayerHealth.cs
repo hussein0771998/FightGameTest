@@ -126,6 +126,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 AudioManager.instance.PlaySFX("die");
                 playerAnim.SetTrigger("die");
+                
                 StartCoroutine(EndGame());
                
                
