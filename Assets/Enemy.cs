@@ -17,6 +17,7 @@ public class Enemy : MonoBehaviour
     int coinNumber = 0;
     bool playDieOnce;
     public SphereCollider girlGun;
+    public ParticleSystem hitPartical;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Arrow")
@@ -24,6 +25,7 @@ public class Enemy : MonoBehaviour
             //Debug.Log("Hit By Arrow ");
             if (PlayerPrefs.GetInt("shootarrow1") == 1)
             {
+                hitPartical.Play();
                 AudioManager.instance.PlayEnemySFX("girl hit");
                 Debug.Log("Hit By arrow ");
                 enemyAnimation.SetBool("hit2", true);
@@ -40,6 +42,7 @@ public class Enemy : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("shootSword1") == 1)
             {
+                hitPartical.Play();
                 AudioManager.instance.PlayEnemySFX("girl hits");
                 healthBar.fillAmount -= 0.35f;
                 Debug.Log("Hit By Sword ");

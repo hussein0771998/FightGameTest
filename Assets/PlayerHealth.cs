@@ -104,7 +104,9 @@ public class PlayerHealth : MonoBehaviour
         
         if (other.tag == "bomb")
         {
+            
             playerAnim.SetBool("hit", false);
+            
             PlayerPrefs.SetInt("BombHit", 0);
         }
         

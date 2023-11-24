@@ -18,6 +18,7 @@ public class GolemEnemy : MonoBehaviour
     BoxCollider arm;
     public Image healthBar;
     bool oneTimePlayUpdate;
+    public ParticleSystem hitPartical;
     void Start()
     {
         AudioManager.instance.PlayMusic("enemy3");
@@ -34,6 +35,7 @@ public class GolemEnemy : MonoBehaviour
     {
         if (other.tag == "Sword")
         {
+            hitPartical.Play();
             AudioManager.instance.PlayEnemySFX("golem hit");
             golemAnimator.SetBool("hit", true);
             healthBar.fillAmount -= swordDamage / 100;
@@ -42,6 +44,7 @@ public class GolemEnemy : MonoBehaviour
 
         if (other.tag == "Arrow")
         {
+            hitPartical.Play();
             AudioManager.instance.PlayEnemySFX("golem hit");
             healthBar.fillAmount -= arrowDamage / 100;
             golemAnimator.SetBool("hit", true);
@@ -49,6 +52,7 @@ public class GolemEnemy : MonoBehaviour
 
         if (other.tag == "playerbomb")
         {
+            hitPartical.Play();
             AudioManager.instance.PlayEnemySFX("golem hit");
             healthBar.fillAmount -= bombDamage / 100;
             golemAnimator.SetBool("hit", true);

@@ -16,6 +16,7 @@ public class ZombEnemy : MonoBehaviour
     float distanceBetween;
     int coinNumber = 1;
     public SphereCollider zombieCollider;
+    public ParticleSystem hitPartical;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Arrow" || other.tag=="Player")
@@ -23,7 +24,7 @@ public class ZombEnemy : MonoBehaviour
            
             if (PlayerPrefs.GetInt("shootarrow1") == 1 || PlayerPrefs.GetInt("shootSword1") == 1)
             {
-                
+                hitPartical.Play();
                 AudioManager.instance.PlayEnemySFX("zombie die");
                 enemyAnimation.SetBool("Die", true);
                 PlayerPrefs.SetInt("shootarrow1", 0);
