@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour
     public SphereCollider girlGun;
     public ParticleSystem hitPartical;
     public DOTweenAnimation cameraShake;
+    public Camera mainCamera;
+    public GameObject healthCanves;
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Arrow")
@@ -77,8 +79,8 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Transform>();
-       
-        enemyAnimation = gameObject.GetComponent<Animator>();
+        mainCamera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+         enemyAnimation = gameObject.GetComponent<Animator>();
         enemyNav = gameObject.GetComponent<NavMeshAgent>();
         playDieOnce = true;
 
@@ -89,6 +91,9 @@ public class Enemy : MonoBehaviour
         if (player == null)
             return;
 
+
+        
+        healthCanves.transform.LookAt(mainCamera.gameObject.transform);
 
         distanceBetween = Vector3.Distance(player.position, transform.position);
 

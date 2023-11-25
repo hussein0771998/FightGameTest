@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public Button gunIcon;
     public Sprite swordSprite, arowSprite;
     bool canBomb ;
+    public BoxCollider swordCollider;
     private void Start()
     {
         Sword = false;
@@ -78,6 +79,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Sword)
         {
+            swordCollider.enabled = true;
             string[] swordAnimations = { "shootsword1", "shootsword2", "shootsword3" };
 
             // Randomly select an animation from the array
@@ -129,6 +131,7 @@ public class PlayerController : MonoBehaviour
         playerAnimator.SetBool("shootsword1", false); 
         playerAnimator.SetBool("shootsword2", false);
         playerAnimator.SetBool("shootsword3", false);
+        swordCollider.enabled = false;
     }
 
     private void FixedUpdate()

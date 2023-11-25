@@ -17,6 +17,7 @@ public class PlayerHealth : MonoBehaviour
     bool die = true;
     public DOTweenAnimation cameraShake;
     public GameObject loseMenu;
+    public ParticleSystem hitPartical,healingPartical;
     private void Start()
     {
         playerAnim = GameObject.FindWithTag("Player").GetComponent<Animator>();
@@ -29,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
             if(PlayerPrefs.GetInt("girlhitplayer")== 1)
             {
                 cameraShake.DORestart();
-                
+                hitPartical.Play();
                 AudioManager.instance.PlaySFX("hit");
                 playerAnim.SetBool("hit",true);
                // playerRB.constraints = RigidbodyConstraints.None; // Allow movement
@@ -44,6 +45,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("zombieHit") == 1)
             {
+                hitPartical.Play();
                 cameraShake.DORestart();
                 AudioManager.instance.PlaySFX("hit");
                 playerAnim.SetBool("hit", true);
@@ -56,6 +58,7 @@ public class PlayerHealth : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("BombHit") == 1)
             {
+                hitPartical.Play();
                 cameraShake.DORestart();
                 AudioManager.instance.PlaySFX("hit");
                 playerAnim.SetBool("hit", true);
@@ -66,6 +69,7 @@ public class PlayerHealth : MonoBehaviour
 
         if(other.tag== "cannon")
         {
+            hitPartical.Play();
             cameraShake.DORestart();
             AudioManager.instance.PlaySFX("hit");
             playerAnim.SetBool("hit", true);
@@ -74,6 +78,7 @@ public class PlayerHealth : MonoBehaviour
         
         if(other.tag== "golemarm")
         {
+            hitPartical.Play();
             cameraShake.DORestart();
             AudioManager.instance.PlaySFX("hit");
             playerAnim.SetBool("hit", true);
@@ -82,8 +87,10 @@ public class PlayerHealth : MonoBehaviour
 
         if (other.tag == "health")
         {
+
             if (healthImg.fillAmount < 1)
             {
+                healingPartical.Play();
                 healthImg.fillAmount += healthEarn / 100;
                 Destroy(other.gameObject);
             }
