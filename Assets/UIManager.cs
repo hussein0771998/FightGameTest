@@ -135,7 +135,7 @@ public class UIManager : MonoBehaviour
         LoseTime.text = loseTime;
         GameAnalytics.NewDesignEvent("CoinCollected", PlayerPrefs.GetInt("TotalCoin"));
     }
-     public void Win(GameObject _win)
+    public void Win(GameObject _win)
     {
         AudioManager.instance.musicSource.Stop();
         AudioManager.instance.PlaySFX("win");

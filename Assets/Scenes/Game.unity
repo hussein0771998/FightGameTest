@@ -9144,7 +9144,7 @@ PrefabInstance:
       objectReference: {fileID: 201617999}
     - target: {fileID: 998407815302816801, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
       propertyPath: m_Constraints
-      value: 116
+      value: 112
       objectReference: {fileID: 0}
     - target: {fileID: 2460710455773509147, guid: 435d261c1fe73ba46883b819e578219d, type: 3}
       propertyPath: MJ
@@ -24463,7 +24463,8 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 200
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5810101481409418223, guid: 6bbfea6690ef7724ba495c866081f855, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6bbfea6690ef7724ba495c866081f855, type: 3}
 --- !u!1 &1186481436
 GameObject:
