@@ -21,7 +21,7 @@ public class CannonEnemy : MonoBehaviour
         _rb.AddForce(transform.forward * 14f, ForceMode.VelocityChange);
         stoneFire.Play();
         AudioManager.instance.PlaySFX("bomb");
-        Destroy(stone, 1.25f);
+        Destroy(stone, 1f);
         Debug.Log("attackStone in");
     }
 
