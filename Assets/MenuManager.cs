@@ -22,7 +22,7 @@ public class MenuManager : MonoBehaviour
     static int allCoin;
     void Start()
     {
-        testMode = true;
+        testMode = false;
         if (testMode)
             PlayerPrefs.DeleteAll();
 
