@@ -19,10 +19,10 @@ public class MenuManager : MonoBehaviour
     public Image loadingBar;
     static int coin;
     public bool testMode;
-   
+    static int allCoin;
     void Start()
     {
-        testMode = false;
+        testMode = true;
         if (testMode)
             PlayerPrefs.DeleteAll();
 
@@ -41,8 +41,12 @@ public class MenuManager : MonoBehaviour
 
         if (PlayerPrefs.HasKey("TotalCoin"))
         {
-            coin += PlayerPrefs.GetInt("TotalCoin");
+           // GetAllCoin();
+
+           // coin = PlayerPrefs.GetInt("AllCoin");
+            coin = PlayerPrefs.GetInt("TotalCoin")+ PlayerPrefs.GetInt("AllCoin");
             coinText.text = coin.ToString();
+             PlayerPrefs.SetInt("AllCoin",coin);
         }
 
         /* else
@@ -54,6 +58,12 @@ public class MenuManager : MonoBehaviour
         timer = 0f;
            level = 1;
            GameAnalytics.Initialize();
+    }
+
+    public void GetAllCoin()
+    {
+        allCoin = PlayerPrefs.GetInt("AllCoin");
+        allCoin += int.Parse(coinText.text);
     }
     private void Update()
     {
@@ -98,6 +108,14 @@ public class MenuManager : MonoBehaviour
     {
 
         Application.Quit();
+    }
+
+    private void OnApplicationQuit()
+    {
+        if(PlayerPrefs.HasKey("TotalCoin"))
+            PlayerPrefs.SetInt("TotalCoin", 0);
+
+        Debug.Log("Application Quit");
     }
 
 }
